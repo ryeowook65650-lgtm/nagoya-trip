@@ -7,13 +7,13 @@
     <style>
         :root {
             --primary: #E94830; --dark: #490000; --blue: #65AADD; --gold: #F9C158; --bg: #FDF5E6;
-            --marker-blue-east: rgba(0, 123, 255, 0.4);   /* 東線-藍 */
-            --marker-green-109: rgba(40, 167, 69, 0.4);   /* 109-綠 */
-            --marker-yellow-h: rgba(255, 235, 59, 0.6);   /* 東山線-黃 */
-            --marker-blue-t: rgba(0, 188, 212, 0.4);      /* 鶴舞線-水藍 */
-            --marker-purple-m: rgba(155, 89, 182, 0.4);   /* 名城線-紫 */
-            --marker-red-e: rgba(233, 72, 48, 0.5);       /* 名鐵特急-紅 */
-            --marker-gray-w: rgba(189, 189, 189, 0.5);    /* 步行-灰 */
+            --marker-blue-east: rgba(0, 123, 255, 0.4);
+            --marker-green-109: rgba(40, 167, 69, 0.4);
+            --marker-yellow-h: rgba(255, 235, 59, 0.6);
+            --marker-blue-t: rgba(0, 188, 212, 0.4);
+            --marker-purple-m: rgba(155, 89, 182, 0.4);
+            --marker-red-e: rgba(233, 72, 48, 0.5);
+            --marker-gray-w: rgba(189, 189, 189, 0.5);
         }
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { margin: 0; padding: 20px; font-family: "Microsoft JhengHei", sans-serif; background-color: var(--bg); color: var(--dark); display: flex; flex-direction: column; align-items: center; }
@@ -23,14 +23,13 @@
         .nav-circle.active { width: 75px; height: 75px; background-color: var(--primary); font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         main { width: 100%; max-width: 550px; }
         .day-section { padding: 40px 0 20px; border-bottom: 2px solid var(--blue); }
-        .weather-info { background-color: var(--gold); color: var(--dark); padding: 10px 20px; border-radius: 8px; font-size: 16px; margin-bottom: 15px; border: 2px solid var(--dark); display: block; font-weight: bold; text-align: center; }
+        .weather-btn { background-color: var(--gold); color: var(--dark); padding: 12px 20px; border-radius: 8px; font-size: 16px; margin-bottom: 15px; border: 2px solid var(--dark); display: block; font-weight: bold; text-align: center; text-decoration: none; box-shadow: 2px 2px 0px var(--dark); }
         .info-card { background: white; border: 2px solid var(--dark); padding: 25px; border-radius: 12px; line-height: 1.8; box-shadow: 6px 6px 0px var(--blue); }
-        .section-title { color: var(--primary); font-size: 22px; border-left: 6px solid var(--primary); padding-left: 12px; margin-bottom: 20px; font-weight: bold; }
+        .section-title { color: var(--primary); font-size: 20px; border-left: 6px solid var(--primary); padding-left: 12px; margin-bottom: 20px; font-weight: bold; }
         .time-tag { background: var(--dark); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 8px; vertical-align: middle; }
         .detail-item { margin: 18px 0; padding-bottom: 15px; border-bottom: 1px dashed #ccc; }
-        .act-name { font-weight: bold; font-size: 19px; color: var(--dark); display: block; margin-bottom: 8px; }
-        .transport-text { display: block; background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid var(--blue); font-size: 14.5px; color: #333; margin-bottom: 8px; white-space: pre-wrap; }
-        
+        .act-name { font-weight: bold; font-size: 18px; color: var(--dark); display: block; margin-bottom: 8px; }
+        .transport-text { display: block; background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid var(--blue); font-size: 14px; color: #333; margin-bottom: 8px; white-space: pre-wrap; }
         .hl-blue-east { background: linear-gradient(transparent 50%, var(--marker-blue-east) 50%); padding: 0 2px; }
         .hl-green-109 { background: linear-gradient(transparent 50%, var(--marker-green-109) 50%); padding: 0 2px; }
         .hl-yellow-h { background: linear-gradient(transparent 50%, var(--marker-yellow-h) 50%); padding: 0 2px; }
@@ -38,7 +37,6 @@
         .hl-purple-m { background: linear-gradient(transparent 50%, var(--marker-purple-m) 50%); padding: 0 2px; }
         .hl-red-e { background: linear-gradient(transparent 50%, var(--marker-red-e) 50%); padding: 0 2px; }
         .hl-gray-w { background: linear-gradient(transparent 50%, var(--marker-gray-w) 50%); padding: 0 2px; }
-
         .price-tag { color: var(--primary); font-weight: bold; font-size: 14px; margin-top: 5px; display: block; }
         .map-btn { display: inline-flex; align-items: center; background-color: #f0f0f0; color: #555; padding: 5px 12px; border-radius: 4px; border: 1px solid #ddd; text-decoration: none; font-size: 12px; font-weight: bold; margin-top: 5px; }
         .map-btn::before { content: "📍 "; margin-right: 4px; }
@@ -55,104 +53,116 @@
     </nav>
     <main>
         <section id="d1" class="day-section">
-            <div class="weather-info">🌤️ 1/8 預報：10°C / 4°C</div>
+            <a href="https://www.google.com/search?q=名古屋+天氣" target="_blank" class="weather-btn">🌦️ 查看 1/8 即時天氣</a>
             <div class="info-card">
-                <h2 class="section-title">第一天行程</h2>
+                <h2 class="section-title">第一天：1/8 (星期四)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">19:00-20:30</span>check in</span>
-                    <span class="transport-text">交通：計程車<br>詳情：車程約 40 分鐘</span>
-                    <span class="price-tag">費用：¥25,000</span>
-                    <a href="https://www.google.com/maps/search/Mitsui+Garden+Hotel+Nagoya+Premier" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">19:00-20:30</span>飯店 Check-in</span>
+                    <span class="transport-text">地點：三井ガーデンホテル名古屋プレミア<br>交通：計程車（車程約40分鐘）</span>
+                    <span class="price-tag">費用：¥25000</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=三井ガーデンホテル名古屋プレミア" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">20:30-22:00</span>吃晚餐</span>
-                    <span class="transport-text">地點：一蘭拉麵<br>備註：都附近有很多店都開很凌</span>
-                    <a href="https://www.google.com/maps/search/Ichiran+Nagoya+Station" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">20:30-22:00</span>晚餐活動：一蘭拉麵</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路6分鐘</span><br>備註：附近亦有很多居酒屋、餃子館、手羽先、海產，很多店開到凌晨</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=一蘭拉麵+名古屋車站" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
 
         <section id="d2" class="day-section">
-            <div class="weather-info">☁️ 1/9 預報：8°C / 2°C</div>
+            <a href="https://www.google.com/search?q=長久手市+天氣" target="_blank" class="weather-btn">🌦️ 查看 1/9 即時天氣</a>
             <div class="info-card">
-                <h2 class="section-title">第二天行程</h2>
+                <h2 class="section-title">第二天：1/9 (星期五)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">8:20-12:00</span>吉卜力大倉庫</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">走路 8 分鐘</span> 到名鐵巴士總站<br>名鐵巴士總站搭乘 <span class="hl-green-109">109</span> 到 Ai-chikyuhaku Kinen Koen<br>( 4 樓的 24 號月台，購票處在 3 樓)</span>
-                    <a href="https://www.google.com/maps/search/Meitetsu+Bus+Center" target="_blank" class="map-btn">名鐵巴士總站</a>
+                    <span class="act-name"><span class="time-tag">08:20-12:00</span>吉卜力大倉庫 (時間細節：10:00 入場)</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路8分鐘</span>到名鐵巴士總站（4樓24號月台，購票在3樓），搭乘巴士<span class="hl-green-109">109</span>至 Ai-chikyuhaku Kinen Koen。車程約1小時。</span>
+                    <span class="price-tag">費用：巴士 ¥1200（無現金支付）</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=名鐵巴士總站" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">12:30-16:00</span>動動力森林</span>
-                    <span class="transport-text">交通：搭乘園區免費接駁車<span class="hl-blue-east">東線</span> E4-E7<br>(約20分鐘一班車、上山方向)</span>
+                    <span class="act-name"><span class="time-tag">12:30-16:00</span>動動力森林 (時間細節：13:00 入場)</span>
+                    <span class="transport-text">交通：搭乘園區<span class="hl-blue-east">免費接駁車東線 E4-E7</span>（約20分鐘一班，上山方向），車程約10分鐘。</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=どんどこ森" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">16:00-</span>飯店、吃飯</span>
-                    <span class="transport-text">交通：搭乘園區免費接駁車<span class="hl-blue-east">東線</span> E7-E1<br>Ai-chikyuhaku Kinen Koen搭乘 <span class="hl-green-109">109</span> 到名鐵巴士總站</span>
+                    <span class="act-name"><span class="time-tag">16:00-</span>回飯店、吃飯</span>
+                    <span class="transport-text">交通：搭乘園區<span class="hl-blue-east">免費接駁車東線 E7-E1</span>。從 Ai-chikyuhaku Kinen Koen <span class="hl-green-109">搭乘 109</span> 到名鐵巴士總站。<br>備註：附近有 JR Gate Tower、高島屋</span>
+                    <span class="price-tag">費用：巴士 ¥1200（無現金支付）</span>
                 </div>
             </div>
         </section>
 
         <section id="d3" class="day-section">
-            <div class="weather-info">☀️ 1/10 預報：11°C / 3°C</div>
+            <a href="https://www.google.com/search?q=柳橋中央市場+天氣" target="_blank" class="weather-btn">🌦️ 查看 1/10 即時天氣</a>
             <div class="info-card">
-                <h2 class="section-title">第三天行程</h2>
+                <h2 class="section-title">第三天：1/10 (星期六)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">8:30-10:00</span>早市 (柳橋中央市場)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">走路6分鐘</span><br>詳情：走路6分鐘</span>
-                    <span class="price-tag">費用：0</span>
-                    <a href="https://www.google.com/maps/search/Yanagibashi+Central+Market" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">08:30-10:00</span>早市活動：柳橋中央市場</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行3分鐘</span><br>備註：部分商店禁止拍照</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=柳橋中央市場" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">10:00-11:30</span>景點 (大須觀音)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站<br>搭乘到伏見(愛知)再轉 <span class="hl-blue-t">鶴舞線</span></span>
-                    <span class="price-tag">費用：¥210 | 車程約 25 分鐘</span>
-                    <a href="https://www.google.com/maps/search/Osu+Kannon" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">10:00-11:30</span>景點參拜：大須觀音</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行6分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到伏見（愛知） -> 轉<span class="hl-blue-t">鶴舞線</span>到大須觀音。車程約25分鐘。</span>
+                    <span class="price-tag">費用：¥210</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=大須觀音" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">11:30-16:00</span>吃午餐、走走 (大須商店街)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行</span><br>詳情：步行5分鐘</span>
-                    <a href="https://www.google.com/maps/search/Osu+Shopping+District" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">11:30-16:00</span>吃午餐、逛街：大須商店街</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行5分鐘</span><br>備註：萬松寺、招財貓地標</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=大須商店街" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">16:00-20:00</span>逛街、晚餐 (名古屋PARCO)</span>
-                    <span class="transport-text">交通：從Yabacho Station搭乘 <span class="hl-purple-m">名城線</span><br>到榮(愛知)再轉 <span class="hl-yellow-h">東山線</span> 到名古屋車站</span>
+                    <span class="act-name"><span class="time-tag">16:00-20:00</span>逛街、晚餐：名古屋 PARCO</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行約10分鐘</span><br>備註：有 niko and...</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋PARCO" target="_blank" class="map-btn">開啟地圖</a>
+                </div>
+                <div class="detail-item">
+                    <span class="act-name"><span class="time-tag">20:00-</span>回飯店</span>
+                    <span class="transport-text">交通：從 Yabachō Station 搭乘<span class="hl-purple-m">名城線</span>到榮（愛知） -> 轉<span class="hl-yellow-h">東山線</span>到名古屋車站。車程約25分鐘。</span>
                     <span class="price-tag">費用：¥240</span>
-                    <a href="https://www.google.com/maps/search/Nagoya+PARCO" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
 
         <section id="d4" class="day-section">
-            <div class="weather-info">🌤️ 1/11 預報：10°C / 5°C</div>
+            <a href="https://www.google.com/search?q=名古屋城+天氣" target="_blank" class="weather-btn">🌦️ 查看 1/11 即時天氣</a>
             <div class="info-card">
-                <h2 class="section-title">第四天行程</h2>
+                <h2 class="section-title">第四天：1/11 (星期日)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">9:00-13:00</span>名古屋城</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站<br>搭乘到榮(愛知)再轉 <span class="hl-purple-m">名城線</span> 到名古屋城</span>
-                    <span class="price-tag">費用：¥240</span>
-                    <a href="https://www.google.com/maps/search/Nagoya+Castle" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">09:00-13:00</span>名古屋城 & 午餐</span>
+                    <span class="transport-text">地點：金シャチ横丁（午餐：正門區域 義直 Zone）<br>交通：<span class="hl-gray-w">步行6分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到榮（愛知） -> 轉<span class="hl-purple-m">名城線</span>到名古屋城。車程約20分鐘。</span>
+                    <span class="price-tag">費用：車資 ¥240 / 門票 ¥500</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋城" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">13:00-19:00</span>景點、休息、晚餐</span>
-                    <span class="transport-text">交通：從名古屋城搭乘 <span class="hl-purple-m">名城線</span> 到榮(愛知)<br>從榮(愛知)搭乘 <span class="hl-yellow-h">東山線</span> 到名古屋車站</span>
+                    <span class="transport-text">地點：中部電力未來塔、Oasis 21 水之宇宙飛船<br>交通：從名古屋城搭乘<span class="hl-purple-m">名城線</span>到榮（愛知）。車程約10分鐘。</span>
+                    <span class="price-tag">費用：¥210</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=中部電力未來塔" target="_blank" class="map-btn">開啟地圖</a>
+                </div>
+                <div class="detail-item">
+                    <span class="act-name"><span class="time-tag">19:00-</span>回飯店</span>
+                    <span class="transport-text">交通：從榮（愛知）搭乘<span class="hl-yellow-h">東山線</span>到名古屋車站。車程約15分鐘。</span>
                     <span class="price-tag">費用：¥210</span>
                 </div>
             </div>
         </section>
 
         <section id="d5" class="day-section">
-            <div class="weather-info">☁️ 1/12 預報：9°C / 4°C</div>
+            <a href="https://www.google.com/search?q=中部國際空港+天氣" target="_blank" class="weather-btn">🌦️ 查看 1/12 即時天氣</a>
             <div class="info-card">
-                <h2 class="section-title">第五天行程</h2>
+                <h2 class="section-title">第五天：1/12 (星期一)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">11:00-17:00</span>回去機場</span>
-                    <span class="transport-text">交通：搭乘 <span class="hl-red-e">名鐵特急</span></span>
-                    <span class="price-tag">費用：¥1,430 | 車程約 40 分鐘</span>
-                    <a href="https://www.google.com/maps/search/Chubu+Centrair+International+Airport" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">11:00-17:00</span>去機場</span>
+                    <span class="transport-text">交通：包車（¥25000）或 搭乘<span class="hl-red-e">名鐵特急</span>（¥1430）。車程約40分鐘。<br>備註：機場裡有非常多可以逛的商店</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=中部國際空港" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
     </main>
+
     <script>
         function setActive(el) {
             document.querySelectorAll('.nav-circle').forEach(circle => circle.classList.remove('active'));

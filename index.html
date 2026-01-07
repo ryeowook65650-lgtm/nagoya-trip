@@ -45,11 +45,11 @@
 <body>
     <h1>名古屋</h1>
     <nav class="nav-container">
-        <a href="#d1" class="nav-circle" onclick="setActive(this)">1/8</a>
-        <a href="#d2" class="nav-circle" onclick="setActive(this)">1/9</a>
-        <a href="#d3" class="nav-circle" onclick="setActive(this)">1/10</a>
-        <a href="#d4" class="nav-circle" onclick="setActive(this)">1/11</a>
-        <a href="#d5" class="nav-circle" onclick="setActive(this)">1/12</a>
+        <a href="#d1" id="nav-d1" class="nav-circle">1/8</a>
+        <a href="#d2" id="nav-d2" class="nav-circle">1/9</a>
+        <a href="#d3" id="nav-d3" class="nav-circle">1/10</a>
+        <a href="#d4" id="nav-d4" class="nav-circle">1/11</a>
+        <a href="#d5" id="nav-d5" class="nav-circle">1/12</a>
     </nav>
     <main>
         <section id="d1" class="day-section">
@@ -58,14 +58,14 @@
                 <h2 class="section-title">第一天：1/8 (星期四)</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">19:00-20:30</span>飯店 Check-in</span>
-                    <span class="transport-text">地點：三井ガーデンホテル名古屋プレミア<br>交通：計程車（車程約40分鐘）</span>
-                    <span class="price-tag">費用：¥25000</span>
+                    <span class="transport-text">地點：三井ガーデンホテル名古屋プレミア<br>交通：計程車<br>車程：約 40 分鐘</span>
+                    <span class="price-tag">費用：¥25,000</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=三井ガーデンホテル名古屋プレミア" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">20:30-22:00</span>晚餐活動：一蘭拉麵</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">走路6分鐘</span><br>備註：附近亦有很多居酒屋、餃子館、手羽先、海產，很多店開到凌晨</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=一蘭拉麵+名古屋車站" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路 6 分鐘</span><br>備註：附近亦有很多居酒屋、餃子館、手羽先、海產，很多店開到凌晨</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=一蘭拉麵+名古屋" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
@@ -75,20 +75,20 @@
             <div class="info-card">
                 <h2 class="section-title">第二天：1/9 (星期五)</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">08:20-12:00</span>吉卜力大倉庫 (時間細節：10:00 入場)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">走路8分鐘</span>到名鐵巴士總站（4樓24號月台，購票在3樓），搭乘巴士<span class="hl-green-109">109</span>至 Ai-chikyuhaku Kinen Koen。車程約1小時。</span>
-                    <span class="price-tag">費用：巴士 ¥1200（無現金支付）</span>
+                    <span class="act-name"><span class="time-tag">08:20-12:00</span>吉卜力大倉庫 (10:00 入場)</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路 8 分鐘</span>到名鐵巴士總站（4 樓 24 號月台，購票在 3 樓），搭乘巴士 <span class="hl-green-109">109</span> 至 Ai-chikyuhaku Kinen Koen。<br>車程：約 1 小時</span>
+                    <span class="price-tag">費用：巴士 ¥1,200 (無現金支付)</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=名鐵巴士總站" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">12:30-16:00</span>動動力森林 (時間細節：13:00 入場)</span>
-                    <span class="transport-text">交通：搭乘園區<span class="hl-blue-east">免費接駁車東線 E4-E7</span>（約20分鐘一班，上山方向），車程約10分鐘。</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=どんどこ森" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="act-name"><span class="time-tag">12:30-16:00</span>動動力森林 (13:00 入場)</span>
+                    <span class="transport-text">交通：搭乘園區<span class="hl-blue-east">免費接駁車東線 E4-E7</span> (約 20 分鐘一班，上山方向)<br>車程：約 10 分鐘</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=愛·地球博記念公園" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">16:00-</span>回飯店、吃飯</span>
                     <span class="transport-text">交通：搭乘園區<span class="hl-blue-east">免費接駁車東線 E7-E1</span>。從 Ai-chikyuhaku Kinen Koen <span class="hl-green-109">搭乘 109</span> 到名鐵巴士總站。<br>備註：附近有 JR Gate Tower、高島屋</span>
-                    <span class="price-tag">費用：巴士 ¥1200（無現金支付）</span>
+                    <span class="price-tag">費用：巴士 ¥1,200 (無現金支付)</span>
                 </div>
             </div>
         </section>
@@ -99,29 +99,23 @@
                 <h2 class="section-title">第三天：1/10 (星期六)</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">08:30-10:00</span>早市活動：柳橋中央市場</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行3分鐘</span><br>備註：部分商店禁止拍照</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行 3 分鐘</span><br>備註：部分商店禁止拍照</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=柳橋中央市場" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">10:00-11:30</span>景點參拜：大須觀音</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行6分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到伏見（愛知） -> 轉<span class="hl-blue-t">鶴舞線</span>到大須觀音。車程約25分鐘。</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到伏見 -> 轉<span class="hl-blue-t">鶴舞線</span>到大須觀音。<br>車程：約 25 分鐘</span>
                     <span class="price-tag">費用：¥210</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=大須觀音" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">11:30-16:00</span>吃午餐、逛街：大須商店街</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行5分鐘</span><br>備註：萬松寺、招財貓地標</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=大須商店街" target="_blank" class="map-btn">開啟地圖</a>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行 5 分鐘</span><br>備註：萬松寺、招財貓地標</span>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">16:00-20:00</span>逛街、晚餐：名古屋 PARCO</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行約10分鐘</span><br>備註：有 niko and...</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋PARCO" target="_blank" class="map-btn">開啟地圖</a>
-                </div>
-                <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">20:00-</span>回飯店</span>
-                    <span class="transport-text">交通：從 Yabachō Station 搭乘<span class="hl-purple-m">名城線</span>到榮（愛知） -> 轉<span class="hl-yellow-h">東山線</span>到名古屋車站。車程約25分鐘。</span>
-                    <span class="price-tag">費用：¥240</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行約 10 分鐘</span><br>備註：有 niko and...</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋+PARCO" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
@@ -132,19 +126,13 @@
                 <h2 class="section-title">第四天：1/11 (星期日)</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">09:00-13:00</span>名古屋城 & 午餐</span>
-                    <span class="transport-text">地點：金シャチ横丁（午餐：正門區域 義直 Zone）<br>交通：<span class="hl-gray-w">步行6分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到榮（愛知） -> 轉<span class="hl-purple-m">名城線</span>到名古屋城。車程約20分鐘。</span>
-                    <span class="price-tag">費用：車資 ¥240 / 門票 ¥500</span>
+                    <span class="transport-text">地點：金シャチ横丁正門區域<br>交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站 -> 搭乘<span class="hl-yellow-h">東山線</span>到榮 -> 轉<span class="hl-purple-m">名城線</span>到名古屋城。<br>車程：約 20 分鐘</span>
+                    <span class="price-tag">車資 ¥240 / 門票 ¥500</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=名古屋城" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">13:00-19:00</span>景點、休息、晚餐</span>
-                    <span class="transport-text">地點：中部電力未來塔、Oasis 21 水之宇宙飛船<br>交通：從名古屋城搭乘<span class="hl-purple-m">名城線</span>到榮（愛知）。車程約10分鐘。</span>
-                    <span class="price-tag">費用：¥210</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=中部電力未來塔" target="_blank" class="map-btn">開啟地圖</a>
-                </div>
-                <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">19:00-</span>回飯店</span>
-                    <span class="transport-text">交通：從榮（愛知）搭乘<span class="hl-yellow-h">東山線</span>到名古屋車站。車程約15分鐘。</span>
+                    <span class="transport-text">地點：中部電力未來塔、Oasis 21 水之宇宙飛船<br>交通：從名古屋城搭乘<span class="hl-purple-m">名城線</span>到榮。<br>車程：約 10 分鐘</span>
                     <span class="price-tag">費用：¥210</span>
                 </div>
             </div>
@@ -156,7 +144,8 @@
                 <h2 class="section-title">第五天：1/12 (星期一)</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">11:00-17:00</span>去機場</span>
-                    <span class="transport-text">交通：包車（¥25000）或 搭乘<span class="hl-red-e">名鐵特急</span>（¥1430）。車程約40分鐘。<br>備註：機場裡有非常多可以逛的商店</span>
+                    <span class="transport-text">交通：包車 或 搭乘<span class="hl-red-e">名鐵特急</span><br>車程：約 40 分鐘</span>
+                    <span class="price-tag">費用：包車 ¥25,000 / 特急 ¥1,430</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=中部國際空港" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
@@ -164,11 +153,26 @@
     </main>
 
     <script>
-        function setActive(el) {
-            document.querySelectorAll('.nav-circle').forEach(circle => circle.classList.remove('active'));
-            el.classList.add('active');
-        }
-        window.onload = function() { document.querySelector('.nav-circle').classList.add('active'); }
+        const sections = document.querySelectorAll('.day-section');
+        const navCircles = document.querySelectorAll('.nav-circle');
+
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navCircles.forEach(circle => {
+                circle.classList.remove('active');
+                if (circle.getAttribute('href') === `#${current}`) {
+                    circle.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

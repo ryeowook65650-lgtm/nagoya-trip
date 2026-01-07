@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名古屋 Chill 旅</title>
+    <style>
+        :root {
+            --primary: #E94830;   /* 朱紅 */
+            --dark: #490000;      /* 暗紅 */
+            --blue: #65AADD;      /* 淺藍 */
+            --gold: #F9C158;      /* 金黃 */
+            --bg: #FDF5E6;        /* 復古米白背景 */
+        }
+        body {
+            margin: 0;
+            display: flex;
+            font-family: "Hiragino Mincho ProN", "serif";
+            background-color: var(--bg);
+            color: var(--dark);
+        }
+        /* 左側列表導覽 */
+        nav {
+            width: 80px;
+            background-color: var(--dark);
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* 右側內容區 */
+        main {
+            margin-left: 100px;
+            padding: 20px;
+            width: 100%;
+        }
+        h1 { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        .day-card {
+            background: white;
+            border: 2px solid var(--blue);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .weather { color: var(--blue); font-weight: bold; }
+        .alert { background-color: var(--primary); color: white; padding: 10px; border-radius: 5px; }
+        .btn { background-color: var(--gold); color: var(--dark); padding: 5px 10px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#d2">1/9<br>吉卜力</a>
+        <a href="#d3">1/10<br>大須</a>
+        <a href="#d4">1/11<br>名城</a>
+        <a href="#d5">1/12<br>機場</a>
+    </nav>
+    <main>
+        <h1>名古屋行程表</h1>
+        
+        <section class="day-card">
+            <h2 style="color:var(--blue)">🌡️ 預報天氣</h2>
+            <p>1/8: ☀️ 4-10°C | 1/9: ☁️ 2-8°C | 1/10: ☀️ | 1/11: 🌤️ | 1/12: ☁️</p>
+        </section>
+
+        <section id="d2" class="day-card">
+            <h2>1/9 (五) 吉卜力大倉庫 [cite: 4]</h2>
+            <div class="alert">⚠️ 交通提醒：名鐵巴士中心 3 號月台上車。 </div>
+            <p>※ 巴士為<strong>完全無現金支付</strong>，請備妥 IC 卡或信用卡感應。 </p>
+            <p>10:00 入場大倉庫 [cite: 4] | 13:00 入場動動力森林 [cite: 4]</p>
+        </section>
+
+        <section id="d3" class="day-card">
+            <h2>1/10 (六) 大須與 Shopping [cite: 5]</h2>
+            <p>早市：柳橋中央市場（不可拍照） [cite: 5]</p>
+            <p>下午：大須商店街、名古屋 PARCO [cite: 5]</p>
+            <a href="#" class="btn">逛 niko and ... [cite: 5]</a>
+        </section>
+
+        <section id="d4" class="day-card">
+            <h2>1/11 (日) 名古屋城與榮商圈 [cite: 6]</h2>
+            <p>參觀：名古屋城、金鯱橫丁 [cite: 6]</p>
+            <p>夜景：中部電力未來塔、綠洲 21 [cite: 6]</p>
+        </section>
+    </main>
+</body>
+</html>

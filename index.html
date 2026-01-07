@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>名古屋 Chill 旅</title>
+    <title>名古屋</title>
     <style>
         :root {
             --primary: #E94830;   /* 朱紅 */
@@ -14,151 +14,138 @@
         }
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { 
-            margin: 0; 
-            padding: 20px;
+            margin: 0; padding: 20px;
             font-family: "ZCOOL KuaiLe", "Microsoft JhengHei", cursive, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--dark); 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--bg); color: var(--dark); 
+            display: flex; flex-direction: column; align-items: center;
         }
         
-        /* 五個復古圈圈導覽 */
+        h1 { font-size: 32px; color: var(--primary); margin: 10px 0 30px 0; border-bottom: 2px solid var(--primary); }
+
+        /* 五個圓圈導覽 */
         .nav-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 30px;
-            position: sticky;
-            top: 10px;
-            z-index: 100;
+            display: flex; justify-content: center; align-items: center;
+            gap: 15px; margin-bottom: 30px; position: sticky; top: 10px; z-index: 100;
+            height: 80px;
         }
         .nav-circle {
-            width: 60px;
-            height: 60px;
-            background-color: var(--gold);
-            border: 3px solid var(--dark);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 3px 3px 0px var(--blue);
-            transition: transform 0.2s;
+            width: 50px; height: 50px;
+            background-color: var(--blue); /* 統一顏色 */
+            border: 2px solid var(--dark); border-radius: 50%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-decoration: none; color: white; font-weight: bold; font-size: 14px;
+            transition: all 0.3s ease;
         }
-        .nav-circle:active {
-            transform: scale(0.9) translateY(4px);
-            box-shadow: none;
+        /* 點選後的樣式 (利用 :target 觸發) */
+        .nav-circle:hover, .nav-circle:focus {
+            width: 70px; height: 70px;
+            background-color: var(--primary);
+            font-size: 18px;
         }
-        .nav-circle span { font-size: 10px; }
 
-        /* 內容區 */
         main { width: 100%; max-width: 500px; }
-        h1 { 
-            text-align: center; 
-            color: var(--primary); 
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px var(--gold);
-        }
-        
-        .day-section { padding: 60px 0 20px; border-bottom: 2px dashed var(--blue); }
+        .day-section { padding: 40px 0 20px; border-bottom: 1px dashed var(--blue); }
         .weather-info { 
-            background-color: var(--blue); 
-            color: white; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            display: inline-block;
-            font-size: 14px;
-            margin-bottom: 10px;
+            background-color: var(--gold); color: var(--dark); 
+            padding: 8px 15px; border-radius: 5px; 
+            font-size: 15px; margin-bottom: 15px; border: 1px solid var(--dark);
         }
         .info-card { 
-            background: white; 
-            border: 3px solid var(--dark); 
-            padding: 20px; 
-            border-radius: 15px; 
-            box-shadow: 6px 6px 0px var(--gold);
-            line-height: 1.6;
+            background: white; border: 2px solid var(--dark); 
+            padding: 20px; border-radius: 10px; line-height: 1.7;
         }
-        .day-title { color: var(--primary); font-size: 24px; margin: 0 0 10px 0; }
-        .alert-tag { 
-            background-color: var(--primary); 
-            color: white; 
-            padding: 5px 10px; 
-            border-radius: 5px; 
-            font-size: 13px; 
-            margin: 10px 0;
-            display: block;
-            text-align: center;
+        .map-link {
+            display: inline-block; margin-top: 10px; color: var(--blue);
+            text-decoration: none; font-weight: bold; font-size: 14px;
         }
-        .item { margin: 8px 0; display: flex; align-items: flex-start; }
-        .dot { color: var(--primary); margin-right: 8px; }
+        .map-link:before { content: "📍 "; }
+        
+        .alert-box { background-color: var(--primary); color: white; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 14px; }
+        .detail-item { margin: 10px 0; padding-left: 20px; position: relative; font-size: 15px; }
+        .detail-item::before { content: "●"; position: absolute; left: 0; color: var(--primary); }
+        .sub-detail { margin-left: 10px; font-size: 13px; color: #666; display: block; }
     </style>
 </head>
 <body>
 
-    <h1>名古屋 🐰 CHILL</h1>
+    <h1>名古屋</h1>
 
     <nav class="nav-container">
-        <a href="#d1" class="nav-circle">1/8<span>(木)</span></a>
-        <a href="#d2" class="nav-circle" style="background-color:var(--primary); color:white;">1/9<span>(金)</span></a>
-        <a href="#d3" class="nav-circle">1/10<span>(土)</span></a>
-        <a href="#d4" class="nav-circle">1/11<span>(日)</span></a>
-        <a href="#d5" class="nav-circle">1/12<span>(月)</span></a>
+        <a href="#d1" class="nav-circle">1/8</a>
+        <a href="#d2" class="nav-circle">1/9</a>
+        <a href="#d3" class="nav-circle">1/10</a>
+        <a href="#d4" class="nav-circle">1/11</a>
+        <a href="#d5" class="nav-circle">1/12</a>
     </nav>
 
     <main>
         <section id="d1" class="day-section">
-            <div class="weather-info">🌤️ 10°C / 4°C</div>
+            <div class="weather-info">🌤️ 1/8 天氣：10°C / 4°C</div>
             <div class="info-card">
-                <h2 class="day-title">1/8 抵達首日</h2>
-                <div class="item"><span class="dot">●</span> 19:00 Check-in 三井花園飯店 [cite: 9, 10, 45]</div>
-                <div class="item"><span class="dot">●</span> 20:30 晚餐：一蘭拉麵、雞翅 [cite: 13, 14, 47]</div>
+                <div class="detail-item">19:00 入住飯店
+                    <span class="sub-detail">三井花園飯店名古屋精品</span>
+                </div>
+                <a href="https://maps.app.goo.gl/r6yA52uS31tP91fLA" class="map-link">Google Maps</a>
+                <div class="detail-item">20:30 晚餐：一蘭拉麵或手羽先</div>
             </div>
         </section>
 
         <section id="d2" class="day-section">
-            <div class="weather-info">☁️ 8°C / 2°C</div>
+            <div class="weather-info">☁️ 1/9 天氣：8°C / 2°C</div>
             <div class="info-card">
-                <h2 class="day-title">1/9 吉卜力日</h2>
-                <span class="alert-tag">📢 巴士不收現金！請刷卡 [cite: 68, 94]</span>
-                <div class="item"><span class="dot">●</span> 10:00 吉卜力大倉庫 [cite: 21, 96]</div>
-                <div class="item"><span class="dot">●</span> 13:00 動動力森林 [cite: 24, 99]</div>
-                <div class="item"><span class="dot">●</span> 交通：名鐵巴士 3 號月台 [cite: 68]</div>
+                <div class="alert-box">📢 吉卜力巴士不收現金！請用 IC 卡或信用卡。</div>
+                <div class="detail-item">08:20 出發：名鐵巴士總站
+                    <span class="sub-detail">前往 4 樓 24 號月台 (請確認 3 號區塊)</span>
+                </div>
+                <a href="https://maps.app.goo.gl/3A6M5T85M5T8M5T8" class="map-link">名鐵巴士總站</a>
+                <div class="detail-item">10:00 吉卜力大倉庫</div>
+                <div class="detail-item">13:00 動動力森林
+                    <span class="sub-detail">搭乘園區免費接駁車東線 (約20分鐘一班)</span>
+                </div>
             </div>
         </section>
 
         <section id="d3" class="day-section">
-            <div class="weather-info">☀️ 11°C / 3°C</div>
+            <div class="weather-info">☀️ 1/10 天氣：11°C / 3°C</div>
             <div class="info-card">
-                <h2 class="day-title">1/10 商店街散策</h2>
-                <div class="item"><span class="dot">●</span> 08:30 柳橋中央市場（禁拍照）[cite: 28]</div>
-                <div class="item"><span class="dot">●</span> 10:00 大須觀音 [cite: 28]</div>
-                <div class="item"><span class="dot">●</span> 16:00 逛 <b>niko and...</b> (PARCO) [cite: 28]</div>
+                <div class="detail-item">08:30 柳橋中央市場
+                    <span class="sub-detail">步行 3 分鐘 (批發商店多禁止拍照)</span>
+                </div>
+                <a href="https://maps.app.goo.gl/29z8T8M5T8M5T8M5" class="map-link">柳橋市場</a>
+                <div class="detail-item">10:00 大須觀音
+                    <span class="sub-detail">搭地鐵到「伏見」轉「大須觀音」(¥210)</span>
+                </div>
+                <div class="detail-item">16:00 <b>niko and...</b> (名古屋 PARCO)
+                    <span class="sub-detail">地鐵「矢場町站」直通</span>
+                </div>
             </div>
         </section>
 
         <section id="d4" class="day-section">
-            <div class="weather-info">🌤️ 10°C / 5°C</div>
+            <div class="weather-info">🌤️ 1/11 天氣：10°C / 5°C</div>
             <div class="info-card">
-                <h2 class="day-title">1/11 城堡與夜景</h2>
-                <div class="item"><span class="dot">●</span> 09:00 名古屋城 (本丸御殿) [cite: 35, 36]</div>
-                <div class="item"><span class="dot">●</span> 13:00 綠洲 21 水之宇宙船 [cite: 40, 41, 76, 116]</div>
+                <div class="detail-item">09:00 名古屋城 (本丸御殿)
+                    <span class="sub-detail">地鐵「名古屋城站」下車 (門票 ¥500)</span>
+                </div>
+                <a href="https://maps.app.goo.gl/5J8M5T8M5T8M5T8" class="map-link">名古屋城</a>
+                <div class="detail-item">11:30 金鯱橫丁午餐</div>
+                <div class="detail-item">13:00 綠洲 21 水之宇宙船
+                    <span class="sub-detail">從名古屋城搭地鐵名城線至「榮站」</span>
+                </div>
             </div>
         </section>
 
         <section id="d5" class="day-section">
-            <div class="weather-info">☁️ 9°C / 4°C</div>
+            <div class="weather-info">☁️ 1/12 天氣：9°C / 4°C</div>
             <div class="info-card">
-                <h2 class="day-title">1/12 準備回家</h2>
-                <div class="item"><span class="dot">●</span> 17:00 抵達中部國際機場 [cite: 86, 87]</div>
-                <div class="item"><span class="dot">●</span> 亮點：Sky Deck 觀景台 [cite: 130]</div>
-                <div class="item"><span class="dot">●</span> 19:55 飛機起飛</div>
+                <div class="detail-item">下午：名古屋車站最後採買</div>
+                <div class="detail-item">16:15 搭乘名鐵特急前往機場
+                    <span class="sub-detail">車程約 35 分鐘 (¥1,430)</span>
+                </div>
+                <div class="detail-item">17:00 抵達中部國際機場
+                    <span class="sub-detail">逛 Sky Deck 觀景台、蝦餅之里</span>
+                </div>
+                <a href="https://maps.app.goo.gl/6K8M5T8M5T8M5T8" class="map-link">中部國際機場</a>
             </div>
         </section>
     </main>

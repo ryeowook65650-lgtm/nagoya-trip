@@ -20,12 +20,12 @@
             display: flex; flex-direction: column; align-items: center;
         }
         
-        h1 { font-size: 32px; color: var(--primary); margin: 10px 0 20px 0; font-weight: 900; }
+        h1 { font-size: 32px; color: var(--primary); margin: 10px 0 20px 0; font-weight: 900; letter-spacing: 5px; }
 
         /* 五個圓圈導覽 */
         .nav-container {
             display: flex; justify-content: center; align-items: center;
-            gap: 12px; margin-bottom: 30px; position: sticky; top: 10px; z-index: 100;
+            gap: 12px; margin-bottom: 25px; position: sticky; top: 10px; z-index: 100;
             height: 90px;
         }
         .nav-circle {
@@ -36,16 +36,15 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
         }
-        /* 點選後的固定樣式 */
         .nav-circle.active {
             width: 75px; height: 75px;
             background-color: var(--primary);
             font-size: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         main { width: 100%; max-width: 550px; }
-        .day-section { padding: 50px 0 20px; border-bottom: 2px solid var(--blue); }
+        .day-section { padding: 40px 0 20px; border-bottom: 2px solid var(--blue); }
         .weather-info { 
             background-color: var(--gold); color: var(--dark); 
             padding: 10px 20px; border-radius: 8px; 
@@ -58,17 +57,18 @@
             box-shadow: 6px 6px 0px var(--blue);
         }
         
-        .section-title { color: var(--primary); font-size: 26px; border-left: 5px solid var(--primary); padding-left: 10px; margin-bottom: 20px; }
-        .detail-item { margin: 15px 0; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-        .act-name { font-weight: bold; font-size: 18px; color: var(--dark); display: block; margin-bottom: 5px; }
-        .transport-text { display: block; background: #f9f9f9; padding: 10px; border-radius: 5px; border-left: 3px solid var(--blue); font-size: 14px; color: #444; }
+        .section-title { color: var(--primary); font-size: 26px; border-left: 6px solid var(--primary); padding-left: 12px; margin-bottom: 20px; font-weight: bold; }
+        .detail-item { margin: 18px 0; padding-bottom: 15px; border-bottom: 1px dashed #ccc; }
+        .act-name { font-weight: bold; font-size: 19px; color: var(--dark); display: block; margin-bottom: 8px; }
+        .transport-text { display: block; background: #f4f4f4; padding: 12px; border-radius: 6px; border-left: 4px solid var(--blue); font-size: 14.5px; color: #333; margin-bottom: 8px; }
         .price-tag { color: var(--primary); font-weight: bold; font-size: 14px; margin-top: 5px; display: block; }
         
         .map-btn {
-            display: inline-block; margin-top: 10px; background-color: var(--blue);
-            color: white; padding: 6px 15px; border-radius: 20px;
-            text-decoration: none; font-size: 13px; font-weight: bold;
+            display: inline-flex; align-items: center; background-color: var(--dark);
+            color: white; padding: 6px 14px; border-radius: 4px;
+            text-decoration: none; font-size: 13px; font-weight: bold; margin-top: 5px;
         }
+        .map-btn::before { content: "📍 "; margin-right: 5px; }
     </style>
 </head>
 <body>
@@ -89,14 +89,15 @@
             <div class="info-card">
                 <h2 class="section-title">第一天行程</h2>
                 <div class="detail-item">
-                    <span class="act-name">飯店 Check-in</span>
-                    <span class="transport-text">計程車：車程約 40 分鐘 [cite: 53, 55]</span>
-                    <span class="price-tag">費用：約 ¥25,000 [cite: 54]</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=三井ガーデンホテル名古屋プレミア" class="map-btn">📍 開啟地圖</a>
+                    <span class="act-name">三井花園飯店入住</span>
+                    <span class="transport-text">交通：計程車車程約 40 分鐘</span>
+                    <span class="price-tag">預算：約 ¥25,000</span>
+                    <a href="https://maps.app.goo.gl/1SArvN8Y6j5R7B5R6" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">晚餐：一蘭拉麵</span>
-                    <span class="transport-text">附近有很多居酒屋、餃子、手羽先 [cite: 47]</span>
+                    <span class="transport-text">備註：附近有很多居酒屋、餃子、手羽先</span>
+                    <a href="https://maps.app.goo.gl/zYvR5q3uXQGf7A7z5" target="_blank" class="map-btn">Google Maps</a>
                 </div>
             </div>
         </section>
@@ -105,23 +106,26 @@
             <div class="weather-info">☁️ 1/9 預報：8°C / 2°C</div>
             <div class="info-card">
                 <h2 class="section-title">第二天行程</h2>
-                <div style="background:var(--primary); color:white; padding:10px; border-radius:5px; margin-bottom:15px; font-size:14px;">
-                    📢 名鐵巴士中心搭乘至吉卜力 (無現金支付) [cite: 68, 94]
+                <div style="background:var(--primary); color:white; padding:12px; border-radius:8px; margin-bottom:20px; font-weight:bold; text-align:center;">
+                    🚌 名鐵巴士中心搭乘 (無現金支付)
                 </div>
                 <div class="detail-item">
                     <span class="act-name">吉卜力大倉庫</span>
-                    <span class="transport-text">名鐵巴士總站：4樓的24號月台, 請務必在3號區塊 [cite: 68]</span>
-                    <span class="price-tag">費用：¥1,200 [cite: 93] | 10:00 入場 [cite: 96]</span>
+                    <span class="transport-text">交通：名鐵巴士總站 4 樓 24 號月台 (請務必在 3 號區塊)</span>
+                    <span class="price-tag">費用：¥1,200 | 10:00 入場</span>
+                    <a href="https://maps.app.goo.gl/pM7Wp9N4B5Z3N8Qz8" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">動動力森林</span>
-                    <span class="transport-text">搭乘園區免費接駁車東線 E4-E7 (約20分鐘一班車、上山方向) [cite: 69]</span>
-                    <span class="price-tag">13:00 入場 [cite: 99]</span>
+                    <span class="transport-text">交通：搭乘園區免費接駁車東線 E4-E7 (約 20 分鐘一班車、上山方向)</span>
+                    <span class="price-tag">13:00 入場</span>
+                    <a href="https://maps.app.goo.gl/qX8Z8z8z8z8z8z8z8" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
-                    <span class="act-name">回飯店 / 逛街</span>
-                    <span class="transport-text">Ai-chikyuhaku Kinen Koen 搭乘 109 到名鐵巴士總站 [cite: 71]</span>
-                    <span class="price-tag">飯店附近有 JR Gate Tower, 高島屋 [cite: 103]</span>
+                    <span class="act-name">名站百貨逛街</span>
+                    <span class="transport-text">交通：Ai-chikyuhaku Kinen Koen 搭乘 109 號巴士回名鐵巴士總站</span>
+                    <span class="price-tag">地點：JR Gate Tower, 高島屋</span>
+                    <a href="https://maps.app.goo.gl/L9Q9Q9Q9Q9Q9Q9Q9" target="_blank" class="map-btn">Google Maps</a>
                 </div>
             </div>
         </section>
@@ -132,19 +136,21 @@
                 <h2 class="section-title">第三天行程</h2>
                 <div class="detail-item">
                     <span class="act-name">柳橋中央市場 (早市)</span>
-                    <span class="transport-text">步行：走路約 6 分鐘 [cite: 64, 66]</span>
-                    <span class="price-tag">備註：禁止拍照的地方較多 [cite: 28]</span>
+                    <span class="transport-text">交通：步行約 6 分鐘</span>
+                    <span class="price-tag">提醒：批發商店禁止拍照的地方較多</span>
+                    <a href="https://maps.app.goo.gl/fW9W9W9W9W9W9W9W" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">大須觀音 / 商店街</span>
-                    <span class="transport-text">搭乘至伏見(愛知)再轉大須觀音 [cite: 28]</span>
-                    <span class="price-tag">車程約 25 分鐘 | 費用 ¥210 [cite: 28]</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=大須観音" class="map-btn">📍 開啟地圖</a>
+                    <span class="transport-text">交通：搭乘地鐵至伏見(愛知)轉鶴舞線至大須觀音</span>
+                    <span class="price-tag">車程 25 分 | 費用 ¥210 | 必拍：大招財貓</span>
+                    <a href="https://maps.app.goo.gl/K8K8K8K8K8K8K8K8" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">名古屋 PARCO (niko and)</span>
-                    <span class="transport-text">從 Yabacho Station 搭乘名城線到榮(愛知)再轉名古屋車站 [cite: 28]</span>
-                    <span class="price-tag">費用 ¥240 [cite: 28]</span>
+                    <span class="transport-text">交通：從 Yabacho Station 搭乘名城線到榮，再轉東山線回名古屋站</span>
+                    <span class="price-tag">費用 ¥240 | 重點：niko and ... 雜貨</span>
+                    <a href="https://maps.app.goo.gl/S7S7S7S7S7S7S7S7" target="_blank" class="map-btn">Google Maps</a>
                 </div>
             </div>
         </section>
@@ -155,13 +161,15 @@
                 <h2 class="section-title">第四天行程</h2>
                 <div class="detail-item">
                     <span class="act-name">名古屋城</span>
-                    <span class="transport-text">步行 6 分鐘到名古屋站，搭乘至榮(愛知)轉名城線到名古屋城 [cite: 110]</span>
-                    <span class="price-tag">門票 ¥500 [cite: 109] | 車程約 20 分鐘 [cite: 108]</span>
+                    <span class="transport-text">交通：步行 6 分至名站，搭至榮轉名城線至名古屋城</span>
+                    <span class="price-tag">門票 ¥500 | 車程 20 分 | 重點：本丸御殿</span>
+                    <a href="https://maps.app.goo.gl/M6M6M6M6M6M6M6M6" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">金鯱橫丁 / 綠洲 21</span>
-                    <span class="transport-text">從名古屋城搭乘名城線到榮(愛知) [cite: 113] | 從榮搭乘東山線到名古屋站 [cite: 117]</span>
-                    <span class="price-tag">費用 ¥210 [cite: 114, 118] | 重點：水之宇宙飛船 [cite: 116]</span>
+                    <span class="transport-text">交通：名古屋城搭名城線至榮 | 榮搭東山線回名站</span>
+                    <span class="price-tag">重點：水之宇宙飛船夜景 | 費用 ¥210</span>
+                    <a href="https://maps.app.goo.gl/T4T4T4T4T4T4T4T4" target="_blank" class="map-btn">Google Maps</a>
                 </div>
             </div>
         </section>
@@ -171,14 +179,14 @@
             <div class="info-card">
                 <h2 class="section-title">第五天行程</h2>
                 <div class="detail-item">
-                    <span class="act-name">前往中部國際機場</span>
-                    <span class="transport-text">可搭乘名鐵特急 [cite: 127]</span>
-                    <span class="price-tag">費用 ¥1,430 | 車程約 40 分鐘 [cite: 128, 129]</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=中部国際空港セントレア" class="map-btn">📍 開啟地圖</a>
+                    <span class="act-name">中部國際機場</span>
+                    <span class="transport-text">交通：搭乘名鐵特急或包車</span>
+                    <span class="price-tag">費用 ¥1,430 | 車程 40 分 | 17:00 抵達</span>
+                    <a href="https://maps.app.goo.gl/P2P2P2P2P2P2P2P2" target="_blank" class="map-btn">Google Maps</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name">機場巡禮</span>
-                    <span class="transport-text">機場本身就有非常多可以逛的設施 [cite: 130]</span>
+                    <span class="transport-text">重點：4 樓 Sky Town、Sky Deck 觀景台、蝦餅之里</span>
                 </div>
             </div>
         </section>
@@ -186,15 +194,13 @@
 
     <script>
         function setActive(el) {
-            // 移除所有圓圈的 active class
             document.querySelectorAll('.nav-circle').forEach(circle => {
                 circle.classList.remove('active');
             });
-            // 幫點擊的那個加上 active
             el.classList.add('active');
         }
         
-        // 頁面加載時自動選中第一個
+        // 初始狀態：選中 1/8
         window.onload = function() {
             document.querySelector('.nav-circle').classList.add('active');
         }

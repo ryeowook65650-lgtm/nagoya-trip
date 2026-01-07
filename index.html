@@ -10,86 +10,158 @@
             --dark: #490000;      /* 暗紅 */
             --blue: #65AADD;      /* 淺藍 */
             --gold: #F9C158;      /* 金黃 */
-            --bg: #FDF5E6;        /* 復古米白背景 */
+            --bg: #FDF5E6;        /* 復古米白 */
         }
-        body {
-            margin: 0;
-            display: flex;
-            font-family: "Hiragino Mincho ProN", "serif";
-            background-color: var(--bg);
-            color: var(--dark);
-        }
-        /* 左側列表導覽 */
-        nav {
-            width: 80px;
-            background-color: var(--dark);
-            height: 100vh;
-            position: fixed;
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            margin: 0; 
+            padding: 20px;
+            font-family: "ZCOOL KuaiLe", "Microsoft JhengHei", cursive, sans-serif; 
+            background-color: var(--bg); 
+            color: var(--dark); 
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 20px;
         }
-        nav a {
-            color: var(--gold);
+        
+        /* 五個復古圈圈導覽 */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+        .nav-circle {
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold);
+            border: 3px solid var(--dark);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
-            font-size: 12px;
-            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 3px 3px 0px var(--blue);
+            transition: transform 0.2s;
+        }
+        .nav-circle:active {
+            transform: scale(0.9) translateY(4px);
+            box-shadow: none;
+        }
+        .nav-circle span { font-size: 10px; }
+
+        /* 內容區 */
+        main { width: 100%; max-width: 500px; }
+        h1 { 
+            text-align: center; 
+            color: var(--primary); 
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px var(--gold);
+        }
+        
+        .day-section { padding: 60px 0 20px; border-bottom: 2px dashed var(--blue); }
+        .weather-info { 
+            background-color: var(--blue); 
+            color: white; 
+            padding: 8px 15px; 
+            border-radius: 20px; 
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .info-card { 
+            background: white; 
+            border: 3px solid var(--dark); 
+            padding: 20px; 
+            border-radius: 15px; 
+            box-shadow: 6px 6px 0px var(--gold);
+            line-height: 1.6;
+        }
+        .day-title { color: var(--primary); font-size: 24px; margin: 0 0 10px 0; }
+        .alert-tag { 
+            background-color: var(--primary); 
+            color: white; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            font-size: 13px; 
+            margin: 10px 0;
+            display: block;
             text-align: center;
         }
-        /* 右側內容區 */
-        main {
-            margin-left: 100px;
-            padding: 20px;
-            width: 100%;
-        }
-        h1 { color: var(--primary); border-bottom: 2px solid var(--primary); }
-        .day-card {
-            background: white;
-            border: 2px solid var(--blue);
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        .weather { color: var(--blue); font-weight: bold; }
-        .alert { background-color: var(--primary); color: white; padding: 10px; border-radius: 5px; }
-        .btn { background-color: var(--gold); color: var(--dark); padding: 5px 10px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        .item { margin: 8px 0; display: flex; align-items: flex-start; }
+        .dot { color: var(--primary); margin-right: 8px; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#d2">1/9<br>吉卜力</a>
-        <a href="#d3">1/10<br>大須</a>
-        <a href="#d4">1/11<br>名城</a>
-        <a href="#d5">1/12<br>機場</a>
+
+    <h1>名古屋 🐰 CHILL</h1>
+
+    <nav class="nav-container">
+        <a href="#d1" class="nav-circle">1/8<span>(木)</span></a>
+        <a href="#d2" class="nav-circle" style="background-color:var(--primary); color:white;">1/9<span>(金)</span></a>
+        <a href="#d3" class="nav-circle">1/10<span>(土)</span></a>
+        <a href="#d4" class="nav-circle">1/11<span>(日)</span></a>
+        <a href="#d5" class="nav-circle">1/12<span>(月)</span></a>
     </nav>
+
     <main>
-        <h1>名古屋行程表</h1>
-        
-        <section class="day-card">
-            <h2 style="color:var(--blue)">🌡️ 預報天氣</h2>
-            <p>1/8: ☀️ 4-10°C | 1/9: ☁️ 2-8°C | 1/10: ☀️ | 1/11: 🌤️ | 1/12: ☁️</p>
+        <section id="d1" class="day-section">
+            <div class="weather-info">🌤️ 10°C / 4°C</div>
+            <div class="info-card">
+                <h2 class="day-title">1/8 抵達首日</h2>
+                <div class="item"><span class="dot">●</span> 19:00 Check-in 三井花園飯店 [cite: 9, 10, 45]</div>
+                <div class="item"><span class="dot">●</span> 20:30 晚餐：一蘭拉麵、雞翅 [cite: 13, 14, 47]</div>
+            </div>
         </section>
 
-        <section id="d2" class="day-card">
-            <h2>1/9 (五) 吉卜力大倉庫 [cite: 4]</h2>
-            <div class="alert">⚠️ 交通提醒：名鐵巴士中心 3 號月台上車。 </div>
-            <p>※ 巴士為<strong>完全無現金支付</strong>，請備妥 IC 卡或信用卡感應。 </p>
-            <p>10:00 入場大倉庫 [cite: 4] | 13:00 入場動動力森林 [cite: 4]</p>
+        <section id="d2" class="day-section">
+            <div class="weather-info">☁️ 8°C / 2°C</div>
+            <div class="info-card">
+                <h2 class="day-title">1/9 吉卜力日</h2>
+                <span class="alert-tag">📢 巴士不收現金！請刷卡 [cite: 68, 94]</span>
+                <div class="item"><span class="dot">●</span> 10:00 吉卜力大倉庫 [cite: 21, 96]</div>
+                <div class="item"><span class="dot">●</span> 13:00 動動力森林 [cite: 24, 99]</div>
+                <div class="item"><span class="dot">●</span> 交通：名鐵巴士 3 號月台 [cite: 68]</div>
+            </div>
         </section>
 
-        <section id="d3" class="day-card">
-            <h2>1/10 (六) 大須與 Shopping [cite: 5]</h2>
-            <p>早市：柳橋中央市場（不可拍照） [cite: 5]</p>
-            <p>下午：大須商店街、名古屋 PARCO [cite: 5]</p>
-            <a href="#" class="btn">逛 niko and ... [cite: 5]</a>
+        <section id="d3" class="day-section">
+            <div class="weather-info">☀️ 11°C / 3°C</div>
+            <div class="info-card">
+                <h2 class="day-title">1/10 商店街散策</h2>
+                <div class="item"><span class="dot">●</span> 08:30 柳橋中央市場（禁拍照）[cite: 28]</div>
+                <div class="item"><span class="dot">●</span> 10:00 大須觀音 [cite: 28]</div>
+                <div class="item"><span class="dot">●</span> 16:00 逛 <b>niko and...</b> (PARCO) [cite: 28]</div>
+            </div>
         </section>
 
-        <section id="d4" class="day-card">
-            <h2>1/11 (日) 名古屋城與榮商圈 [cite: 6]</h2>
-            <p>參觀：名古屋城、金鯱橫丁 [cite: 6]</p>
-            <p>夜景：中部電力未來塔、綠洲 21 [cite: 6]</p>
+        <section id="d4" class="day-section">
+            <div class="weather-info">🌤️ 10°C / 5°C</div>
+            <div class="info-card">
+                <h2 class="day-title">1/11 城堡與夜景</h2>
+                <div class="item"><span class="dot">●</span> 09:00 名古屋城 (本丸御殿) [cite: 35, 36]</div>
+                <div class="item"><span class="dot">●</span> 13:00 綠洲 21 水之宇宙船 [cite: 40, 41, 76, 116]</div>
+            </div>
+        </section>
+
+        <section id="d5" class="day-section">
+            <div class="weather-info">☁️ 9°C / 4°C</div>
+            <div class="info-card">
+                <h2 class="day-title">1/12 準備回家</h2>
+                <div class="item"><span class="dot">●</span> 17:00 抵達中部國際機場 [cite: 86, 87]</div>
+                <div class="item"><span class="dot">●</span> 亮點：Sky Deck 觀景台 [cite: 130]</div>
+                <div class="item"><span class="dot">●</span> 19:55 飛機起飛</div>
+            </div>
         </section>
     </main>
+
 </body>
 </html>

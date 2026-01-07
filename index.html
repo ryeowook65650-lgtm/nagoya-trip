@@ -7,7 +7,6 @@
     <style>
         :root {
             --primary: #E94830; --dark: #490000; --blue: #65AADD; --gold: #F9C158; --bg: #FDF5E6;
-            /* 螢光筆色定義 */
             --marker-blue-east: rgba(0, 123, 255, 0.4);   /* 東線-藍 */
             --marker-green-109: rgba(40, 167, 69, 0.4);   /* 109-綠 */
             --marker-yellow-h: rgba(255, 235, 59, 0.6);   /* 東山線-黃 */
@@ -15,7 +14,6 @@
             --marker-purple-m: rgba(155, 89, 182, 0.4);   /* 名城線-紫 */
             --marker-red-e: rgba(233, 72, 48, 0.5);       /* 名鐵特急-紅 */
             --marker-gray-w: rgba(189, 189, 189, 0.5);    /* 步行-灰 */
-            --marker-taxi: rgba(249, 193, 88, 0.7);       /* 計程車-亮黃 */
         }
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { margin: 0; padding: 20px; font-family: "Microsoft JhengHei", sans-serif; background-color: var(--bg); color: var(--dark); display: flex; flex-direction: column; align-items: center; }
@@ -33,15 +31,13 @@
         .act-name { font-weight: bold; font-size: 19px; color: var(--dark); display: block; margin-bottom: 8px; }
         .transport-text { display: block; background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid var(--blue); font-size: 14.5px; color: #333; margin-bottom: 8px; white-space: pre-wrap; }
         
-        /* 螢光筆類別 */
-        .hl-blue-east { background: linear-gradient(transparent 50%, var(--marker-blue-east) 50%); }
-        .hl-green-109 { background: linear-gradient(transparent 50%, var(--marker-green-109) 50%); }
-        .hl-yellow-h { background: linear-gradient(transparent 50%, var(--marker-yellow-h) 50%); }
-        .hl-blue-t { background: linear-gradient(transparent 50%, var(--marker-blue-t) 50%); }
-        .hl-purple-m { background: linear-gradient(transparent 50%, var(--marker-purple-m) 50%); }
-        .hl-red-e { background: linear-gradient(transparent 50%, var(--marker-red-e) 50%); }
-        .hl-gray-w { background: linear-gradient(transparent 50%, var(--marker-gray-w) 50%); }
-        .hl-taxi { background: linear-gradient(transparent 50%, var(--marker-taxi) 50%); }
+        .hl-blue-east { background: linear-gradient(transparent 50%, var(--marker-blue-east) 50%); padding: 0 2px; }
+        .hl-green-109 { background: linear-gradient(transparent 50%, var(--marker-green-109) 50%); padding: 0 2px; }
+        .hl-yellow-h { background: linear-gradient(transparent 50%, var(--marker-yellow-h) 50%); padding: 0 2px; }
+        .hl-blue-t { background: linear-gradient(transparent 50%, var(--marker-blue-t) 50%); padding: 0 2px; }
+        .hl-purple-m { background: linear-gradient(transparent 50%, var(--marker-purple-m) 50%); padding: 0 2px; }
+        .hl-red-e { background: linear-gradient(transparent 50%, var(--marker-red-e) 50%); padding: 0 2px; }
+        .hl-gray-w { background: linear-gradient(transparent 50%, var(--marker-gray-w) 50%); padding: 0 2px; }
 
         .price-tag { color: var(--primary); font-weight: bold; font-size: 14px; margin-top: 5px; display: block; }
         .map-btn { display: inline-flex; align-items: center; background-color: #f0f0f0; color: #555; padding: 5px 12px; border-radius: 4px; border: 1px solid #ddd; text-decoration: none; font-size: 12px; font-weight: bold; margin-top: 5px; }
@@ -64,14 +60,14 @@
                 <h2 class="section-title">第一天行程</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">19:00-20:30</span>check in</span>
-                    <span class="transport-text">交通：<span class="hl-taxi">計程車</span><br>詳情：車程約 40 分鐘</span>
+                    <span class="transport-text">交通：計程車<br>詳情：車程約 40 分鐘</span>
                     <span class="price-tag">費用：¥25,000</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=三井ガーデンホテル名古屋プレミア" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Mitsui+Garden+Hotel+Nagoya+Premier" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">20:30-22:00</span>吃晚餐</span>
                     <span class="transport-text">地點：一蘭拉麵<br>備註：都附近有很多店都開很凌</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=一蘭+名古屋" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Ichiran+Nagoya+Station" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
@@ -82,16 +78,16 @@
                 <h2 class="section-title">第二天行程</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">8:20-12:00</span>吉卜力大倉庫</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">走路6分鐘</span>對名鐵巴士總站<br>名鐵巴士總站搭乘到Ai-chikyuhaku Kinen Koen<br>(4樓的24號月台,請務必在3號區塊)</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=名鉄バスセンター" target="_blank" class="map-btn">名鐵巴士總站</a>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路 8 分鐘</span> 到名鐵巴士總站<br>名鐵巴士總站搭乘 <span class="hl-green-109">109</span> 到 Ai-chikyuhaku Kinen Koen<br>( 4 樓的 24 號月台，購票處在 3 樓)</span>
+                    <a href="https://www.google.com/maps/search/Meitetsu+Bus+Center" target="_blank" class="map-btn">名鐵巴士總站</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">12:30-16:00</span>動動力森林</span>
-                    <span class="transport-text">交通：<span class="hl-blue-east">搭乘園區免費接駁車東線 E4-E7</span><br>(約20分鐘一班車、上山方向)</span>
+                    <span class="transport-text">交通：搭乘園區免費接駁車<span class="hl-blue-east">東線</span> E4-E7<br>(約20分鐘一班車、上山方向)</span>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">16:00-</span>飯店、吃飯</span>
-                    <span class="transport-text">交通：<span class="hl-blue-east">搭乘園區免費接駁車東線 E7-E1</span><br>Ai-chikyuhaku Kinen Koen<span class="hl-green-109">搭乘109到名鐵巴士總站</span></span>
+                    <span class="transport-text">交通：搭乘園區免費接駁車<span class="hl-blue-east">東線</span> E7-E1<br>Ai-chikyuhaku Kinen Koen搭乘 <span class="hl-green-109">109</span> 到名鐵巴士總站</span>
                 </div>
             </div>
         </section>
@@ -102,26 +98,26 @@
                 <h2 class="section-title">第三天行程</h2>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">8:30-10:00</span>早市 (柳橋中央市場)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行</span><br>詳情：走路6分鐘</span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">走路6分鐘</span><br>詳情：走路6分鐘</span>
                     <span class="price-tag">費用：0</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=柳橋中央市場" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Yanagibashi+Central+Market" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">10:00-11:30</span>景點 (大須觀音)</span>
-                    <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站<br>搭乘到伏見(愛知)再轉 <span class="hl-blue-t">大須觀音</span></span>
+                    <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站<br>搭乘到伏見(愛知)再轉 <span class="hl-blue-t">鶴舞線</span></span>
                     <span class="price-tag">費用：¥210 | 車程約 25 分鐘</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=大須観音" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Osu+Kannon" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">11:30-16:00</span>吃午餐、走走 (大須商店街)</span>
                     <span class="transport-text">交通：<span class="hl-gray-w">步行</span><br>詳情：步行5分鐘</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=大須商店街" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Osu+Shopping+District" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">16:00-20:00</span>逛街、晚餐 (名古屋PARCO)</span>
                     <span class="transport-text">交通：從Yabacho Station搭乘 <span class="hl-purple-m">名城線</span><br>到榮(愛知)再轉 <span class="hl-yellow-h">東山線</span> 到名古屋車站</span>
                     <span class="price-tag">費用：¥240</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋PARCO" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Nagoya+PARCO" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
@@ -134,7 +130,7 @@
                     <span class="act-name"><span class="time-tag">9:00-13:00</span>名古屋城</span>
                     <span class="transport-text">交通：<span class="hl-gray-w">步行 6 分鐘</span>到名古屋車站<br>搭乘到榮(愛知)再轉 <span class="hl-purple-m">名城線</span> 到名古屋城</span>
                     <span class="price-tag">費用：¥240</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=名古屋城" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Nagoya+Castle" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
                 <div class="detail-item">
                     <span class="act-name"><span class="time-tag">13:00-19:00</span>景點、休息、晚餐</span>
@@ -149,10 +145,10 @@
             <div class="info-card">
                 <h2 class="section-title">第五天行程</h2>
                 <div class="detail-item">
-                    <span class="act-name"><span class="time-tag">11:00-17:00</span>去機場</span>
+                    <span class="act-name"><span class="time-tag">11:00-17:00</span>回去機場</span>
                     <span class="transport-text">交通：搭乘 <span class="hl-red-e">名鐵特急</span></span>
                     <span class="price-tag">費用：¥1,430 | 車程約 40 分鐘</span>
-                    <a href="https://www.google.com/maps/search/?api=1&query=中部国際空港" target="_blank" class="map-btn">開啟地圖</a>
+                    <a href="https://www.google.com/maps/search/Chubu+Centrair+International+Airport" target="_blank" class="map-btn">開啟地圖</a>
                 </div>
             </div>
         </section>
